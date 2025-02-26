@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>about</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-toolbar color="secondary">
+      <ion-title size="large">About</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-label>
+        <ion-button color="success" routerLink="team">Team</ion-button>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-button color="warning" routerLink="history">History</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div id="container">
+      
+  </div>
+</ion-content>
