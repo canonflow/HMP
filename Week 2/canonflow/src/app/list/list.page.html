@@ -16,4 +16,65 @@
       <ion-title size="large">List</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Product List per {{ today }}
+      </ion-text>
+    </ion-item>
+  </ion-list> 
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Product List per {{ today_ind() }}
+      </ion-text>
+      <ion-button size="small" (click)="goYesterday()" color="danger" [disabled]="is5DaysAgo">
+        <ion-icon name="chevron-back-outline" [class.white]="true"></ion-icon>
+      </ion-button>
+      <ion-button size="small" (click)="resetDate()" color="warning">
+        <ion-icon name="sync-circle" [class.yellow-white]="true"></ion-icon>
+      </ion-button>
+      <ion-button size="small" (click)="goTomorrow()" color="success" [disabled]="is5DaysNext">
+        <ion-icon name="chevron-forward-outline" [class.white]="true"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list> 
+
+  <!-- Exercise 4 -->
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Product Name <strong>{{ product.productName }}</strong>
+      </ion-text>
+      </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Product Price <strong>Rp {{ product.productPrice.toLocaleString("id-ID") }}</strong>
+      </ion-text>
+      </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Quantity
+      </ion-text>
+      <ion-button size="small" color="danger" [disabled]="!product.decrease" (click)="decreaseProduct()">
+        <ion-icon name="remove" [class.white]="true"></ion-icon>
+      </ion-button>
+      <ion-text>{{ product.productQuantity }}</ion-text>
+      <ion-button size="small" color="success" [disabled]="!product.increase" (click)="increaseProduct()">
+        <ion-icon name="add" [class.white]="true"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>
+        Total Amount <strong>Rp {{ totalAmount.toLocaleString("id-ID") }}</strong>
+      </ion-text>
+      </ion-item>
+  </ion-list>
 </ion-content>
