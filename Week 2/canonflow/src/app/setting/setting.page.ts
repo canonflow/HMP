@@ -13,4 +13,16 @@ export class SettingPage implements OnInit {
   ngOnInit() {
   }
 
+  photoUrl: string = "";
+  password: string = "";
+  isMoreThanSix: boolean = false;
+  isIncludeNumber: boolean = false;
+  isIncludeSpecialCharacter: boolean = false;
+
+  checkPassword() {
+    this.isMoreThanSix = (this.password.length > 6) ? true : false;
+    this.isIncludeNumber = (/\d/.test(this.password)) ? true : false;
+    this.isIncludeSpecialCharacter = (/[!@#$%^&*]+/.test(this.password)) ? true : false;
+  }
+
 }

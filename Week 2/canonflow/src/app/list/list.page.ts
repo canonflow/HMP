@@ -38,9 +38,69 @@ export class ListPage implements OnInit {
   }
   totalAmount: number = this.product.productQuantity * this.product.productPrice;
 
+  // ===== Week 4 =====
+  couponCode: string = "0000";
+  validStatus: string = "invalid";
+  discount: number = 0;
+  couponColor: string = "red";
+  fontSize: string = "14";
+  isValid: boolean = false;
+
+  books = [
+    {
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      publishedDate: new Date('1960-07-11'),
+      price: 7.99,
+      discount: 10,
+      cover: "https://ncte.org/wp-content/uploads/2017/11/TKAMB-header.jpg"
+    },
+    {
+      title: 'The Great Gatsby',
+      author: 'F. Scott Fitzgerald',
+      publishedDate: new Date('1925-04-10'),
+      price: 10.99,
+      discount: 0,
+      cover: "http://i0.wp.com/www.impawards.com/2013/posters/great_gatsby_ver7_xlg.jpg"
+    },
+    {
+      title: 'Pride and Prejudice',
+      author: 'Jane Austen',
+      publishedDate: new Date('1813-01-28'),
+      price: 12.75,
+      discount: 15,
+      cover: "https://osccdn.medcom.id/images/content/2020/09/15/b80560b66e6a1dfb4f63731ca87e84a6.jpg"
+    }
+  ]
+
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // ===== Week 4 - Practice 1 =====
+  checkValid() {
+    if (this.couponCode === "1234") {
+      this.discount = 5;
+      this.validStatus = "valid";
+      this.couponColor = "green";
+      this.fontSize = "18";
+      this.isValid = true;
+    } else if (this.couponCode === "6789") {
+      this.isValid = true;
+      this.fontSize = "18";
+      this.couponColor = "green";
+      this.discount = 10;
+      this.validStatus = "valid"
+    } else {
+      this.isValid = false;
+      this.fontSize = "14";
+      this.discount = 0;
+      this.couponColor = "red";
+      this.validStatus = "invalid"
+    }
+    // this.discount = (this.couponCode === "1234") ? 5 : (this.couponCode === "6789") ? 10 : 0;
   }
 
   // Interpolation Binding with Method / Function

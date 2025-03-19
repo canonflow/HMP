@@ -16,4 +16,49 @@
       <ion-title size="large">Setting</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Week 4 - Practice 2 -->
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input labelPlacement="floating" label="Masukkan Photo URL: " [(ngModel)]="photoUrl"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-img
+        [src]="photoUrl"
+      >
+      </ion-img>
+    </ion-item>
+
+    <!-- Week 4 - Practice 3 -->
+     <ion-item>
+      <ion-input labelPlacement="floating" label="Masukkan Password: " [(ngModel)]="password" (keyup)="checkPassword()"></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-checkbox 
+        justify="start" 
+        labelPlacement="end" 
+        disabled="true" 
+        [checked]="isMoreThanSix">
+          More than 6 characters
+      </ion-checkbox>
+     </ion-item>
+     <ion-item>
+      <ion-checkbox 
+        justify="start" 
+        labelPlacement="end" 
+        disabled="true"
+        [checked]="isIncludeNumber">
+          Include number
+      </ion-checkbox>
+     </ion-item>
+     <ion-item>
+      <ion-checkbox 
+        justify="start" 
+        labelPlacement="end" 
+        disabled="true"
+        [checked]="isIncludeSpecialCharacter">
+          Include special characters "(!&#64;#$%^&*)"
+      </ion-checkbox>
+     </ion-item>
+  </ion-list>
 </ion-content>
