@@ -37,8 +37,20 @@ const routes: Routes = [
       {
         path: 'setting',
         loadChildren: () => import('./setting/setting.module').then(m => m.SettingPageModule)
+      },
+      {
+        path: 'pasta',
+        loadChildren: () => import('./pasta/pasta.module').then(m => m.PastaPageModule)
       }
     ]
+  },
+  {
+    path: 'pasta',
+    loadChildren: () => import('./pasta/pasta.module').then( m => m.PastaPageModule)
+  },
+  {
+    path:'pasta/:id',
+    loadChildren: () => import('./pasta/detail/detail.module').then(m => m.DetailPageModule)
   }
 ];
 
