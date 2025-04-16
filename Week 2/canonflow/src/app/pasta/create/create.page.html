@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
+    <ion-title>New Pasta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">create</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input labelPlacement="floating" label="Name" placeholder="Enter name" [(ngModel)]="pasta.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea 
+        labelPlacement="floating" 
+        label="Description" 
+        placeholder="Enter Description" 
+        auto-grow="true" 
+        [(ngModel)]="pasta.description"
+        rows="4"
+      ></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" label="Image" placeholder="Enter Image URL" [(ngModel)]="pasta.url"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="pasta.url != ''" [ngStyle]="{'padding.px': 10}">
+      <ion-img [src]="pasta.url" [ngStyle]="{'border-radius.px': 20}" />
+    </ion-item>
+    <!-- <ion-item>
+      <ion-radio-group [(ngModel)]="pasta.isSpicy">
+        <ion-label>
+          Spicy
+        </ion-label>
+        <ion-item *ngFor="let spicy of listOfSpicies">
+          <ion-label>{{spicy.label}}</ion-label>
+          <ion-radio [value]="spicy.value" slot="start"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item> -->
+    <ion-item>
+      <ion-checkbox [(ngModel)]="pasta.isSpicy" labelPlacement="end" alignment="center" justify="start">Spicy</ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="pasta.price" label="Price" labelPlacement="floating">
+        <ion-select-option 
+          *ngFor="let price of listOfPrices" 
+          [value]="price"
+        >
+          {{ price }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-button 
+        id="btn-submit" 
+        (click)="submitPasta()"
+        expand="full"
+        size="small"
+      >
+        Submit
+      </ion-button>
+      <ion-alert
+        trigger="btn-submit"
+        header="Add Pasta"
+        message="Data successfully stored"
+        [buttons]="alertButtons"
+      ></ion-alert>
+    </ion-item>
+  </ion-list>
+</ion-content>

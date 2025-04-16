@@ -24,7 +24,14 @@
   <ion-accordion-group expand="inset" mode="ios" *ngIf="jenistampilan == 'accordion'">
     <ion-accordion *ngFor="let pasta of pastas">
       <ion-item slot="header" color="medium">
-        <ion-label>{{ pasta.name }}</ion-label>
+        <ion-label [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
+          <div>
+            {{ pasta.name }}
+          </div>
+          <div *ngIf="pasta.isSpicy">
+            <ion-chip color="danger">Spicy</ion-chip>
+          </div>
+        </ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         <img alt="pasta" [src]="pasta.url" width="100%" [ngStyle]="{'border-radius.px': 4}"/>
@@ -43,14 +50,21 @@
     <ion-card *ngFor="let pasta of pastas; let i = index">
       <img alt="Silhouette of mountains" [src]="pasta.url" />
       <ion-card-header>
-        <ion-card-title>{{ pasta.name }}</ion-card-title>
+        <ion-card-title 
+          [ngStyle]="{'display': 'flex', 'justify-content': 'space-between', 'align-items': 'center'}"
+        >
+          <div>{{ pasta.name }}</div>
+          <div *ngIf="pasta.isSpicy">
+            <ion-chip color="danger">Spicy</ion-chip>
+          </div>
+        </ion-card-title>
         <ion-card-subtitle>Rp. {{ pasta.price }}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         {{ pasta.description }}
         <br />
         <br />
-        <ion-button routerLink="/pasta/{{ i * 2 + i }}">Default</ion-button>
+        <ion-button routerLink="/pasta/{{ i }}">Default</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
@@ -63,8 +77,11 @@
            <ion-item>
              <ion-img [src]="pasta.url" [ngStyle]="{'border-radius.px': 12}" />
            </ion-item>
-           <ion-item routerLink="/pasta/{{ i * 2 + i2 }}" >
-             {{pasta.name}}
+           <ion-item routerLink="/pasta/{{ i * 2 + i2 }}">
+            <div>{{ pasta.name }}</div>
+            <div *ngIf="pasta.isSpicy">
+              <ion-chip color="danger">Spicy</ion-chip>
+            </div>
            </ion-item>
        </ion-list>
       </ion-col>
