@@ -10,6 +10,7 @@ import { FoodserviceService, IPasta } from '../foodservice.service';
 export class PastaPage implements OnInit {
 
   jenistampilan = "card";
+  search = "";
 
   pastas: IPasta[] = [];
   a: any;
@@ -30,8 +31,13 @@ export class PastaPage implements OnInit {
     this.foodservice.pastaList().subscribe((data) => {
       // console.log(data);
       this.pastas = this.foodservice.parsePastaList(data);
+    })
+  }
 
-
+  searchPasta() {
+    console.log(this.search);
+    this.foodservice.searchPasta(this.search).subscribe((data) => {
+      this.pastas = this.foodservice.parsePastaList(data);
     })
   }
 

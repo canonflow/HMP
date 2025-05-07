@@ -47,6 +47,7 @@
 
   <!-- CARDS -->
   <div *ngIf="jenistampilan == 'card'">
+    <ion-searchbar animated="true" placeholder="Search" [(ngModel)]="search" (keyup)="searchPasta()"></ion-searchbar>
     <ion-card *ngFor="let pasta of pastas; let i = index">
       <img alt="Silhouette of mountains" [src]="pasta.url" />
       <ion-card-header>

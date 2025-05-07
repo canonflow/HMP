@@ -28,6 +28,10 @@ export class FoodserviceService {
     return this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php");
   }
 
+  searchPasta(name: string): Observable<any> {
+    return this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php?search=" + name);
+  }
+
   parsePastaList(data: IPasta[]) {
     let newData =  data.map((d: any) => {
       const { is_spicy, ...rest } = d;
