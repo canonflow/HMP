@@ -12,6 +12,7 @@ export class PastaPage implements OnInit {
   jenistampilan = "card";
 
   pastas: IPasta[] = [];
+  a: any;
 
   chunkArray(arr: any[], chunkSize: number): any[][] {
     const result = [];
@@ -25,7 +26,13 @@ export class PastaPage implements OnInit {
   constructor(private foodservice: FoodserviceService) { }
 
   ngOnInit() {
-    this.pastas = this.foodservice.pastas;
+    // this.pastas = this.foodservice.pastas;
+    this.foodservice.pastaList().subscribe((data) => {
+      // console.log(data);
+      this.pastas = this.foodservice.parsePastaList(data);
+
+
+    })
   }
 
 }

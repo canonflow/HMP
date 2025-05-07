@@ -64,7 +64,7 @@
         {{ pasta.description }}
         <br />
         <br />
-        <ion-button routerLink="/pasta/{{ i }}">Default</ion-button>
+        <ion-button routerLink="/pasta/{{ pasta.id }}">Default</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
@@ -77,7 +77,7 @@
            <ion-item>
              <ion-img [src]="pasta.url" [ngStyle]="{'border-radius.px': 12}" />
            </ion-item>
-           <ion-item routerLink="/pasta/{{ i * 2 + i2 }}">
+           <ion-item routerLink="/pasta/{{ pasta.id }}">
             <div>{{ pasta.name }}</div>
             <div *ngIf="pasta.isSpicy">
               <ion-chip color="danger">Spicy</ion-chip>

@@ -12,7 +12,7 @@ import { FoodserviceService, IPasta } from 'src/app/foodservice.service';
 export class DetailPage implements OnInit {
   index = 0;
 
-  pasta!: IPasta;
+  pasta!: any;
 
 
   constructor(private route: ActivatedRoute, private foodservice: FoodserviceService) { }
@@ -20,7 +20,12 @@ export class DetailPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.index = params['id'];
-      this.pasta = this.foodservice.pastas[this.index]
+      // this.pasta = this.foodservice.pastas[this.index]
+      this.foodservice.pastaDetail(this.index).subscribe((data) => {
+        // this.pasta = this.foodservice.parsePastaList(data)[this.index]
+        this.pasta = this.foodservice.parsePasta(data);
+        console.log(this.pasta)
+      })
     });
   }
 

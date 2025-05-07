@@ -6,13 +6,19 @@
 
 <ion-content [fullscreen]="true" color="light">
   <ion-card>
-    <img alt="Silhouette of mountains" [src]="pasta.url" />
+    <img alt="Silhouette of mountains" [src]="pasta?.url" />
     <ion-card-header>
-      <ion-card-title>{{ pasta.name }}</ion-card-title>
-      <ion-card-subtitle>Rp. {{ pasta.price }}</ion-card-subtitle>
+      <ion-card-title>{{ pasta?.name }}</ion-card-title>
+      <ion-card-subtitle>Rp. {{ pasta?.price }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      {{ pasta.description }}
+      {{ pasta?.description }}
+      <ion-label>Pasta Recipe Instruction:</ion-label>
+      <ol>
+        <li *ngFor="let ins of pasta?.instructions">
+          {{ins.instruction}}
+        </li>
+      </ol>
     </ion-card-content>
   </ion-card>
 </ion-content>
