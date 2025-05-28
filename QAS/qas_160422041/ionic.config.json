@@ -1,0 +1,7 @@
+{
+  "name": "qas_160422041",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

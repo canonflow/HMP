@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detail KK</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Detail KK</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title
+        [ngStyle]="{'display': 'flex', 'justify-content': 'space-between', 'align-items': 'center'}"
+      >
+        <div>{{ kk.nomor }}</div>
+      </ion-card-title>
+      <ion-card-subtitle>{{ kk.namaKepalaKeluarga }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{ kk.alamat }}
+      <br />
+      <br />
+      <ion-label>Anggota:</ion-label>
+      <ol>
+        <li *ngFor="let k of kk.anggota">
+          {{k.nama}}
+          <ion-button
+            id="btn-delete"
+            (click)="delete(k.id)"
+            expand="full"
+            size="small"
+          >
+            Hapus
+          </ion-button>
+        </li>
+      </ol>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Tambah Anggota</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input labelPlacement="floating" label="Nama Anggota Keluarga" placeholder="Enter Nama" [(ngModel)]="anggota.nama"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" label="NIK Anggota Keluarga" placeholder="Enter NIK" [(ngModel)]="anggota.nik"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" label="Jenis Kelamin" placeholder="Enter Jenis Kelamin" [(ngModel)]="anggota.jenisKelamin"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button
+          id="btn-submit"
+          (click)="add()"
+          expand="full"
+          size="small"
+        >
+          Add
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

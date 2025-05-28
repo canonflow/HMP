@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Daftar KK
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Daftar KK</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <ion-card *ngFor="let k of kk; let i = index">
+      <ion-card-header>
+        <ion-card-title
+          [ngStyle]="{'display': 'flex', 'justify-content': 'space-between', 'align-items': 'center'}"
+        >
+          <div>{{ k.nomor }}</div>
+        </ion-card-title>
+        <ion-card-subtitle>{{ k.namaKepalaKeluarga }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{ k.alamat }}
+        <br />
+        <br />
+        <ion-button routerLink="/tabs/tab1/detailkk/{{ k.id }}">Detail</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+<!--  <app-explore-container name="Tab 1 page"></app-explore-container>-->
+</ion-content>

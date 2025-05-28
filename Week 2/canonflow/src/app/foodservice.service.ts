@@ -23,7 +23,7 @@ export class FoodserviceService {
     private http: HttpClient
   ) { }
 
-  pastaList(): Observable<any> {
+  pastaList(): Observable<any> {id
     // let data = this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php")
     return this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php");
   }
