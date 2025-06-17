@@ -23,7 +23,7 @@ export class FoodserviceService {
     private http: HttpClient
   ) { }
 
-  pastaList(): Observable<any> {id
+  pastaList(): Observable<any> {
     // let data = this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php")
     return this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php");
   }
@@ -32,12 +32,18 @@ export class FoodserviceService {
     return this.http.get("https://ubaya.xyz/hybrid/160422041/pastas.php?search=" + name);
   }
 
+  position_xy(): Observable<any> {
+    return this
+      .http
+      .get("https://ubaya.xyz/hybrid/160422041/posisi_xy.php")
+  }
+
   parsePastaList(data: IPasta[]) {
     let newData =  data.map((d: any) => {
       const { is_spicy, ...rest } = d;
       return {
         ...rest,
-        isSpicy: (is_spicy == 1) ? true : false 
+        isSpicy: (is_spicy == 1) ? true : false
       }
     });
 
@@ -77,14 +83,14 @@ export class FoodserviceService {
   //     description: "Cavatappi, chicken and broccoli tossed in alfredo sauce topped with parmesan cheese.",
   //     price: 38000,
   //     isSpicy: false,
-  //   }, 
+  //   },
   //   {
   //     name: "DEEP DISH MAC & CHEESE",
   //     url: "https://www.unos.com/images/menus/pasta/Pasta_MacCheese_8-20_300.jpg",
   //     description: "Ooey, gooey, cheesy goodness penne with aged cheddar and parmesan baked in a deep dish pan.",
   //     price: 42000,
   //     isSpicy: false,
-  //   }, 
+  //   },
   //   {
   //     name: "RATTLESNAKE PASTA",
   //     url: "https://www.unos.com/images/menus/pasta/Pasta_Rattlesnake_8-20_300.jpg",

@@ -38,10 +38,16 @@
             <ion-label>New Pasta</ion-label>
           </ion-item>
         </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/location">
+            <ion-icon name="location" slot="start"></ion-icon>
+            <ion-label>Location</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
-    
+
   <!-- tabs.page.html -->
   <ion-tabs>
     <ion-tab-bar slot="bottom">
@@ -49,12 +55,12 @@
         <ion-icon name="home"></ion-icon>
         <ion-label>Home</ion-label>
       </ion-tab-button>
-    
+
       <ion-tab-button tab="list">
         <ion-icon name="list"></ion-icon>
         <ion-label>List</ion-label>
       </ion-tab-button>
-    
+
       <ion-tab-button tab="setting">
         <ion-icon name="settings"></ion-icon>
         <ion-label>Settings</ion-label>
@@ -69,7 +75,12 @@
         <ion-icon name="add-circle-outline"></ion-icon>
         <ion-label>New Pasta</ion-label>
       </ion-tab-button>
+
+      <ion-tab-button tab="location">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-label>Location</ion-label>
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-  
+
 </ion-app>
