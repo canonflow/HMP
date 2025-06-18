@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FoodserviceService, IPasta } from 'src/app/foodservice.service';
 
+// Camera
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -32,6 +35,23 @@ export class CreatePage implements OnInit {
 
   public alertButtons = ['OK'];
 
+  base64:any
+  imageType:string='URL'
+  new_url: string = ""
+  
+  async captureImage() {
+    const image = await Camera.getPhoto({
+      quality: 50,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera,
+    });
+    const base64Image = 'data:image/png;base64,' + image.base64String;
+    this.base64 = base64Image;
+
+    console.log(this.base64);
+  }
+
+
   constructor(
     private foodservice: FoodserviceService,
     private router: Router
@@ -52,6 +72,8 @@ export class CreatePage implements OnInit {
   }
 
   submitPasta() {
+    alert(this.base64);
+    return;
     this.foodservice.addPasta(this.pasta);
     this.pasta = {
       name: "",
